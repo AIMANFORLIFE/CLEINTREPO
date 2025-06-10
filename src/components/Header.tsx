@@ -46,30 +46,37 @@ const Header = () => {
               About
             </button>
             <button 
-              onClick={() => scrollToSection('process')}
+              onClick={() => scrollToSection('services')}
               className="text-white/80 hover:text-white transition-all duration-300 text-sm font-medium hover:scale-105 animate-fade-in-down"
               style={{ animationDelay: '0.2s' }}
             >
               Services
             </button>
             <button 
-              onClick={() => scrollToSection('contact')}
+              onClick={() => scrollToSection('process')}
               className="text-white/80 hover:text-white transition-all duration-300 text-sm font-medium hover:scale-105 animate-fade-in-down"
               style={{ animationDelay: '0.3s' }}
             >
-              Work
+              Process
             </button>
             <button 
               onClick={() => scrollToSection('contact')}
               className="text-white/80 hover:text-white transition-all duration-300 text-sm font-medium hover:scale-105 animate-fade-in-down"
               style={{ animationDelay: '0.4s' }}
             >
+              Work
+            </button>
+            <button 
+              onClick={() => scrollToSection('contact')}
+              className="text-white/80 hover:text-white transition-all duration-300 text-sm font-medium hover:scale-105 animate-fade-in-down"
+              style={{ animationDelay: '0.5s' }}
+            >
               Thoughts
             </button>
             <button 
               onClick={() => scrollToSection('contact')}
               className="glass-button text-white px-6 py-3 text-sm font-medium animate-fade-in-down"
-              style={{ animationDelay: '0.5s' }}
+              style={{ animationDelay: '0.6s' }}
             >
               Contact
             </button>
@@ -93,10 +100,16 @@ const Header = () => {
                 About
               </button>
               <button 
-                onClick={() => scrollToSection('process')}
+                onClick={() => scrollToSection('services')}
                 className="block text-white/80 hover:text-white transition-all duration-300 text-sm font-medium w-full text-left hover:translate-x-2"
               >
                 Services
+              </button>
+              <button 
+                onClick={() => scrollToSection('process')}
+                className="block text-white/80 hover:text-white transition-all duration-300 text-sm font-medium w-full text-left hover:translate-x-2"
+              >
+                Process
               </button>
               <button 
                 onClick={() => scrollToSection('contact')}

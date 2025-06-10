@@ -15,17 +15,17 @@ const Hero = () => {
   };
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-start px-8 relative">
-      <div className="max-w-4xl">
+    <section id="hero" className="min-h-screen flex items-center justify-center px-8 relative">
+      <div className="max-w-4xl text-center">
         <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <h1 className="text-6xl md:text-7xl lg:text-8xl font-light text-white mb-8 leading-tight tracking-tight animate-fade-in-up">
-            Fractional Marketing.
+            Strategic Solutions.
             <br />
-            <span className="font-normal animate-fade-in-up" style={{ animationDelay: '0.3s' }}>Permanent Impact.</span>
+            <span className="font-normal animate-fade-in-up" style={{ animationDelay: '0.3s' }}>Lasting Results.</span>
           </h1>
         </div>
         
-        <div className={`transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div className={`transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} flex justify-center`}>
           <button 
             onClick={scrollToContact}
             className="glass-button-primary text-white px-8 py-4 text-sm font-medium animate-bounce-in group"

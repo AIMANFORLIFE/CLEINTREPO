@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
 import Process from '../components/Process';
+import Services from '../components/Services';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import AnimatedBackground from '../components/AnimatedBackground';
@@ -16,6 +17,7 @@ const MainSite = () => {
         <Header />
         <Hero />
         <Process />
+        <Services />
         <Contact />
         <Footer />
       </div>

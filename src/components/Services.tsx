@@ -9,30 +9,30 @@ const Services = () => {
     {
       icon: Search,
       title: "SEO",
-      description: "Search engine optimization to boost your visibility and drive organic traffic",
+      description: "Search engine optimization to boost your visibility",
       status: "available",
-      features: ["Keyword Research", "On-Page Optimization", "Technical SEO", "Performance Tracking"]
+      features: ["Keyword Research", "On-Page Optimization", "Technical SEO"]
     },
     {
       icon: PenTool,
       title: "Content Marketing",
-      description: "Strategic content creation that engages your audience and builds brand authority",
+      description: "Strategic content that engages your audience",
       status: "coming-soon",
-      features: ["Content Strategy", "Blog Writing", "Video Content", "Content Calendar"]
+      features: ["Content Strategy", "Blog Writing", "Video Content"]
     },
     {
       icon: Share2,
       title: "Social Media Marketing",
-      description: "Comprehensive social media strategies to grow your brand presence",
+      description: "Comprehensive social media strategies",
       status: "coming-soon",
-      features: ["Social Strategy", "Content Creation", "Community Management", "Analytics"]
+      features: ["Social Strategy", "Content Creation", "Analytics"]
     },
     {
       icon: Code,
       title: "Web Design & Development",
-      description: "Modern, responsive websites that convert visitors into customers",
+      description: "Modern, responsive websites that convert",
       status: "coming-soon",
-      features: ["Custom Design", "Responsive Development", "Performance Optimization", "CMS Integration"]
+      features: ["Custom Design", "Responsive Development", "Performance Optimization"]
     }
   ];
 
@@ -48,7 +48,7 @@ const Services = () => {
                 newVisible[index] = true;
                 return newVisible;
               });
-            }, index * 150);
+            }, index * 100);
           }
         });
       },
@@ -72,18 +72,18 @@ const Services = () => {
   const getStatusBadge = (status: string) => {
     if (status === 'available') {
       return (
-        <div className="flex items-center space-x-2 mb-4">
-          <CheckCircle className="w-4 h-4 text-green-400" />
-          <span className="text-green-400 text-xs font-medium px-3 py-1 bg-green-500/20 border border-green-500/30 rounded-full">
+        <div className="flex items-center space-x-2 mb-3">
+          <CheckCircle className="w-3 h-3 text-green-400" />
+          <span className="text-green-400 text-xs font-medium px-2 py-1 bg-green-500/20 border border-green-500/30 rounded-full">
             Available Now
           </span>
         </div>
       );
     } else {
       return (
-        <div className="flex items-center space-x-2 mb-4">
-          <Clock className="w-4 h-4 text-amber-400" />
-          <span className="text-amber-400 text-xs font-medium px-3 py-1 bg-amber-500/20 border border-amber-500/30 rounded-full">
+        <div className="flex items-center space-x-2 mb-3">
+          <Clock className="w-3 h-3 text-amber-400" />
+          <span className="text-amber-400 text-xs font-medium px-2 py-1 bg-amber-500/20 border border-amber-500/30 rounded-full">
             Coming Soon
           </span>
         </div>
@@ -92,9 +92,9 @@ const Services = () => {
   };
 
   return (
-    <section id="services" className="py-32 px-8 relative">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-20">
+    <section id="services" className="py-24 px-8 relative">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-light text-white mb-4 animate-fade-in-up">
             Our Services
           </h2>
@@ -103,53 +103,53 @@ const Services = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {services.map((service, index) => (
             <div 
               key={index}
               ref={el => serviceRefs.current[index] = el}
-              className={`group transition-all duration-700 ${
+              className={`group transition-all duration-500 ${
                 visibleServices[index] 
                   ? 'opacity-100 translate-y-0' 
                   : 'opacity-0 translate-y-10'
               }`}
-              style={{ transitionDelay: `${index * 100}ms` }}
+              style={{ transitionDelay: `${index * 80}ms` }}
             >
-              <div className={`glass-card p-8 h-full transition-all duration-500 group-hover:scale-105 group-hover:animate-glow animate-scale-in ${
+              <div className={`glass-card p-6 h-full transition-all duration-300 hover:scale-[1.02] ${
                 service.status === 'coming-soon' ? 'opacity-80' : ''
-              }`} style={{ animationDelay: `${index * 0.1}s` }}>
+              }`}>
                 {/* Status Badge */}
                 {getStatusBadge(service.status)}
                 
                 {/* Service Icon */}
-                <div className="w-16 h-16 glass-card flex items-center justify-center mb-6 transition-all duration-500 group-hover:scale-110 group-hover:animate-glow animate-float" style={{ animationDelay: `${index * 0.5}s` }}>
-                  <service.icon className={`w-8 h-8 transition-all duration-300 group-hover:scale-110 ${
+                <div className="w-12 h-12 glass-card flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110">
+                  <service.icon className={`w-6 h-6 transition-all duration-300 ${
                     service.status === 'available' ? 'text-white' : 'text-white/60'
                   }`} />
                 </div>
                 
                 {/* Service Title */}
-                <h3 className={`text-2xl font-medium mb-4 transition-all duration-300 group-hover:scale-105 ${
+                <h3 className={`text-xl font-medium mb-3 transition-all duration-300 ${
                   service.status === 'available' ? 'text-white' : 'text-white/70'
                 }`}>
                   {service.title}
                 </h3>
                 
                 {/* Service Description */}
-                <p className={`mb-6 leading-relaxed transition-all duration-300 group-hover:text-white/90 ${
+                <p className={`mb-4 text-sm leading-relaxed transition-all duration-300 ${
                   service.status === 'available' ? 'text-white/70' : 'text-white/50'
                 }`}>
                   {service.description}
                 </p>
                 
                 {/* Service Features */}
-                <div className="space-y-2">
+                <div className="space-y-1 mb-4">
                   {service.features.map((feature, featureIndex) => (
-                    <div key={featureIndex} className="flex items-center space-x-3">
-                      <div className={`w-2 h-2 rounded-full ${
+                    <div key={featureIndex} className="flex items-center space-x-2">
+                      <div className={`w-1.5 h-1.5 rounded-full ${
                         service.status === 'available' ? 'bg-blue-400' : 'bg-white/30'
                       }`}></div>
-                      <span className={`text-sm ${
+                      <span className={`text-xs ${
                         service.status === 'available' ? 'text-white/80' : 'text-white/50'
                       }`}>
                         {feature}
@@ -160,10 +160,10 @@ const Services = () => {
                 
                 {/* Call to Action */}
                 {service.status === 'available' && (
-                  <div className="mt-6 pt-6 border-t border-white/10">
+                  <div className="pt-3 border-t border-white/10">
                     <button 
                       onClick={scrollToContact}
-                      className="glass-button text-white px-6 py-3 text-sm font-medium transition-all duration-300 hover:scale-105"
+                      className="glass-button text-white px-4 py-2 text-xs font-medium transition-all duration-300 hover:scale-105"
                     >
                       Get Started
                     </button>
@@ -171,10 +171,10 @@ const Services = () => {
                 )}
                 
                 {service.status === 'coming-soon' && (
-                  <div className="mt-6 pt-6 border-t border-white/10">
+                  <div className="pt-3 border-t border-white/10">
                     <button 
                       onClick={scrollToContact}
-                      className="glass-button text-white/60 px-6 py-3 text-sm font-medium transition-all duration-300 hover:scale-105 hover:text-white/80"
+                      className="glass-button text-white/60 px-4 py-2 text-xs font-medium transition-all duration-300 hover:scale-105 hover:text-white/80"
                     >
                       Notify Me
                     </button>
@@ -186,13 +186,13 @@ const Services = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center mt-16 animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
-          <p className="text-white/60 mb-6">
+        <div className="text-center mt-12 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
+          <p className="text-white/60 mb-4 text-sm">
             Ready to elevate your digital presence?
           </p>
           <button 
             onClick={scrollToContact}
-            className="glass-button-primary text-white px-8 py-4 text-sm font-medium transition-all duration-300 hover:scale-105"
+            className="glass-button-primary text-white px-6 py-3 text-sm font-medium transition-all duration-300 hover:scale-105"
           >
             Start Your Project
           </button>
@@ -202,4 +202,4 @@ const Services = () => {
   );
 };
 
-export default Services;
+export default React.memo(Services);

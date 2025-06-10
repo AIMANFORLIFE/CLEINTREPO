@@ -62,6 +62,13 @@ const Services = () => {
     return () => observer.disconnect();
   }, []);
 
+  const scrollToContact = () => {
+    const element = document.getElementById('contact');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const getStatusBadge = (status: string) => {
     if (status === 'available') {
       return (
@@ -155,12 +162,7 @@ const Services = () => {
                 {service.status === 'available' && (
                   <div className="mt-6 pt-6 border-t border-white/10">
                     <button 
-                      onClick={() => {
-                        const element = document.getElementById('contact');
-                        if (element) {
-                          element.scrollIntoView({ behavior: 'smooth' });
-                        }
-                      }}
+                      onClick={scrollToContact}
                       className="glass-button text-white px-6 py-3 text-sm font-medium transition-all duration-300 hover:scale-105"
                     >
                       Get Started
@@ -171,12 +173,7 @@ const Services = () => {
                 {service.status === 'coming-soon' && (
                   <div className="mt-6 pt-6 border-t border-white/10">
                     <button 
-                      onClick={() => {
-                        const element = document.getElementById('contact');
-                        if (element) {
-                          element.scrollIntoView({ behavior: 'smooth' });
-                        }
-                      }}
+                      onClick={scrollToContact}
                       className="glass-button text-white/60 px-6 py-3 text-sm font-medium transition-all duration-300 hover:scale-105 hover:text-white/80"
                     >
                       Notify Me
@@ -194,12 +191,7 @@ const Services = () => {
             Ready to elevate your digital presence?
           </p>
           <button 
-            onClick={() => {
-              const element = document.getElementById('contact');
-              if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
-              }
-            }}
+            onClick={scrollToContact}
             className="glass-button-primary text-white px-8 py-4 text-sm font-medium transition-all duration-300 hover:scale-105"
           >
             Start Your Project

@@ -25,19 +25,17 @@ const Header = () => {
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
-        isScrolled 
-          ? 'bg-white/5 backdrop-blur-xl border-b border-white/10' 
-          : 'bg-transparent'
-      } ${isVisible ? 'animate-fade-in-down' : 'opacity-0'}`}
+      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 bg-transparent ${
+        isVisible ? 'animate-fade-in-down' : 'opacity-0'
+      }`}
     >
-      <nav className="container mx-auto px-8 py-6">
+      <nav className="container mx-auto px-6 py-3">
         <div className="flex items-center justify-between">
-          <div className="text-2xl font-bold text-white tracking-wider animate-fade-in-left">
+          <div className="text-xl font-bold text-white tracking-wider animate-fade-in-left">
             AUGMENTUM
           </div>
           
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6">
             <button 
               onClick={() => scrollToSection('hero')}
               className="text-white/80 hover:text-white transition-all duration-300 text-sm font-medium hover:scale-105 animate-fade-in-down"
@@ -75,7 +73,7 @@ const Header = () => {
             </button>
             <button 
               onClick={() => scrollToSection('contact')}
-              className="glass-button text-white px-6 py-3 text-sm font-medium animate-fade-in-down"
+              className="glass-button text-white px-5 py-2 text-sm font-medium animate-fade-in-down"
               style={{ animationDelay: '0.6s' }}
             >
               Contact
@@ -86,13 +84,13 @@ const Header = () => {
             className="md:hidden text-white p-2 glass-button animate-fade-in-right"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
 
         {isMenuOpen && (
           <div className="md:hidden absolute top-full left-0 right-0 bg-white/5 backdrop-blur-xl border-b border-white/10 animate-fade-in-down">
-            <div className="px-8 py-6 space-y-4">
+            <div className="px-6 py-4 space-y-3">
               <button 
                 onClick={() => scrollToSection('hero')}
                 className="block text-white/80 hover:text-white transition-all duration-300 text-sm font-medium w-full text-left hover:translate-x-2"
@@ -125,7 +123,7 @@ const Header = () => {
               </button>
               <button 
                 onClick={() => scrollToSection('contact')}
-                className="block glass-button text-white px-6 py-3 text-sm font-medium w-full text-center"
+                className="block glass-button text-white px-5 py-2 text-sm font-medium w-full text-center"
               >
                 Contact
               </button>

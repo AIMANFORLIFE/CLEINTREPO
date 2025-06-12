@@ -96,4 +96,4 @@ const Process = () => {
   );
 };
 
-export default React.memo(Process);
+export default Process;

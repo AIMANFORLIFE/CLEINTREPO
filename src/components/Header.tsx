@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Zap } from 'lucide-react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -25,63 +25,94 @@ const Header = () => {
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 bg-transparent ${
-        isVisible ? 'animate-fade-in-down' : 'opacity-0'
+      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-700 bg-transparent ${
+        isVisible ? 'animate-slide-down-bounce' : 'opacity-0'
       }`}
     >
       <nav className="container mx-auto px-6 py-3">
         <div className="flex items-center justify-between">
-          <div className="text-xl font-bold text-white tracking-wider animate-fade-in-left">
-            AUGMENTUM
+          <div className="flex items-center space-x-3 text-xl font-bold text-white tracking-wider animate-logo-glow group">
+            <div className="relative">
+              <Zap className="w-8 h-8 text-white transform group-hover:rotate-12 group-hover:scale-110 transition-all duration-500 animate-pulse-glow" />
+              <div className="absolute inset-0 w-8 h-8 bg-white/20 rounded-full blur-md animate-ping opacity-75"></div>
+            </div>
+            <span className="bg-gradient-to-r from-white via-blue-100 to-purple-100 bg-clip-text text-transparent animate-text-shimmer">
+              AUGMENTUM
+            </span>
           </div>
           
           <div className="hidden md:flex items-center space-x-6">
             <button 
               onClick={() => scrollToSection('hero')}
-              className="text-white/80 hover:text-white transition-all duration-300 text-sm font-medium hover:scale-105 animate-fade-in-down"
+              className="text-white/80 hover:text-white transition-all duration-500 text-sm font-medium hover:scale-110 animate-float-in group"
               style={{ animationDelay: '0.1s' }}
             >
-              About
+              <span className="relative">
+                About
+                <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 group-hover:w-full transition-all duration-500"></div>
+              </span>
             </button>
             <button 
               onClick={() => scrollToSection('services')}
-              className="text-white/80 hover:text-white transition-all duration-300 text-sm font-medium hover:scale-105 animate-fade-in-down"
+              className="text-white/80 hover:text-white transition-all duration-500 text-sm font-medium hover:scale-110 animate-float-in group"
               style={{ animationDelay: '0.2s' }}
             >
-              Services
+              <span className="relative">
+                Services
+                <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 group-hover:w-full transition-all duration-500"></div>
+              </span>
             </button>
             <button 
               onClick={() => scrollToSection('process')}
-              className="text-white/80 hover:text-white transition-all duration-300 text-sm font-medium hover:scale-105 animate-fade-in-down"
+              className="text-white/80 hover:text-white transition-all duration-500 text-sm font-medium hover:scale-110 animate-float-in group"
               style={{ animationDelay: '0.3s' }}
             >
-              Process
+              <span className="relative">
+                Process
+                <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 group-hover:w-full transition-all duration-500"></div>
+              </span>
             </button>
             <button 
-              onClick={() => scrollToSection('contact')}
-              className="text-white/80 hover:text-white transition-all duration-300 text-sm font-medium hover:scale-105 animate-fade-in-down"
+              onClick={() => scrollToSection('testimonials')}
+              className="text-white/80 hover:text-white transition-all duration-500 text-sm font-medium hover:scale-110 animate-float-in group"
               style={{ animationDelay: '0.4s' }}
             >
-              Work
+              <span className="relative">
+                Success Stories
+                <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 group-hover:w-full transition-all duration-500"></div>
+              </span>
             </button>
             <button 
               onClick={() => scrollToSection('contact')}
-              className="text-white/80 hover:text-white transition-all duration-300 text-sm font-medium hover:scale-105 animate-fade-in-down"
+              className="text-white/80 hover:text-white transition-all duration-500 text-sm font-medium hover:scale-110 animate-float-in group"
               style={{ animationDelay: '0.5s' }}
             >
-              Thoughts
+              <span className="relative">
+                Work
+                <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 group-hover:w-full transition-all duration-500"></div>
+              </span>
             </button>
             <button 
               onClick={() => scrollToSection('contact')}
-              className="glass-button text-white px-5 py-2 text-sm font-medium animate-fade-in-down"
+              className="text-white/80 hover:text-white transition-all duration-500 text-sm font-medium hover:scale-110 animate-float-in group"
               style={{ animationDelay: '0.6s' }}
             >
-              Contact
+              <span className="relative">
+                Thoughts
+                <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 group-hover:w-full transition-all duration-500"></div>
+              </span>
+            </button>
+            <button 
+              onClick={() => scrollToSection('contact')}
+              className="glass-button-enhanced text-white px-5 py-2 text-sm font-medium animate-float-in"
+              style={{ animationDelay: '0.7s' }}
+            >
+              <span className="relative z-10">Contact</span>
             </button>
           </div>
 
           <button 
-            className="md:hidden text-white p-2 glass-button animate-fade-in-right"
+            className="md:hidden text-white p-2 glass-button-enhanced animate-float-in"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -89,41 +120,47 @@ const Header = () => {
         </div>
 
         {isMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-white/5 backdrop-blur-xl border-b border-white/10 animate-fade-in-down">
+          <div className="md:hidden absolute top-full left-0 right-0 bg-white/5 backdrop-blur-xl border-b border-white/10 animate-slide-down-elastic">
             <div className="px-6 py-4 space-y-3">
               <button 
                 onClick={() => scrollToSection('hero')}
-                className="block text-white/80 hover:text-white transition-all duration-300 text-sm font-medium w-full text-left hover:translate-x-2"
+                className="block text-white/80 hover:text-white transition-all duration-500 text-sm font-medium w-full text-left hover:translate-x-3 hover:scale-105"
               >
                 About
               </button>
               <button 
                 onClick={() => scrollToSection('services')}
-                className="block text-white/80 hover:text-white transition-all duration-300 text-sm font-medium w-full text-left hover:translate-x-2"
+                className="block text-white/80 hover:text-white transition-all duration-500 text-sm font-medium w-full text-left hover:translate-x-3 hover:scale-105"
               >
                 Services
               </button>
               <button 
                 onClick={() => scrollToSection('process')}
-                className="block text-white/80 hover:text-white transition-all duration-300 text-sm font-medium w-full text-left hover:translate-x-2"
+                className="block text-white/80 hover:text-white transition-all duration-500 text-sm font-medium w-full text-left hover:translate-x-3 hover:scale-105"
               >
                 Process
               </button>
               <button 
+                onClick={() => scrollToSection('testimonials')}
+                className="block text-white/80 hover:text-white transition-all duration-500 text-sm font-medium w-full text-left hover:translate-x-3 hover:scale-105"
+              >
+                Success Stories
+              </button>
+              <button 
                 onClick={() => scrollToSection('contact')}
-                className="block text-white/80 hover:text-white transition-all duration-300 text-sm font-medium w-full text-left hover:translate-x-2"
+                className="block text-white/80 hover:text-white transition-all duration-500 text-sm font-medium w-full text-left hover:translate-x-3 hover:scale-105"
               >
                 Work
               </button>
               <button 
                 onClick={() => scrollToSection('contact')}
-                className="block text-white/80 hover:text-white transition-all duration-300 text-sm font-medium w-full text-left hover:translate-x-2"
+                className="block text-white/80 hover:text-white transition-all duration-500 text-sm font-medium w-full text-left hover:translate-x-3 hover:scale-105"
               >
                 Thoughts
               </button>
               <button 
                 onClick={() => scrollToSection('contact')}
-                className="block glass-button text-white px-5 py-2 text-sm font-medium w-full text-center"
+                className="block glass-button-enhanced text-white px-5 py-2 text-sm font-medium w-full text-center"
               >
                 Contact
               </button>

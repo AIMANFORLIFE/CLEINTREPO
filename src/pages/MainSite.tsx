@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import Hero from '../components/Hero';
 import Process from '../components/Process';
 import Services from '../components/Services';
+import Testimonials from '../components/Testimonials';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import AnimatedBackground from '../components/AnimatedBackground';
@@ -18,6 +19,7 @@ const MainSite = () => {
         <Hero />
         <Process />
         <Services />
+        <Testimonials />
         <Contact />
         <Footer />
       </div>

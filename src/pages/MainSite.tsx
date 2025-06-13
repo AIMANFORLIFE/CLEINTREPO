@@ -1,8 +1,11 @@
 import React from 'react';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
+import ServiceInfoBoxes from '../components/ServiceInfoBoxes';
 import Process from '../components/Process';
+import ProcessInfoBoxes from '../components/ProcessInfoBoxes';
 import Services from '../components/Services';
+import ResultsShowcase from '../components/ResultsShowcase';
 import Testimonials from '../components/Testimonials';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
@@ -17,8 +20,11 @@ const MainSite = () => {
       <div className="relative z-10">
         <Header />
         <Hero />
+        <ServiceInfoBoxes />
         <Process />
+        <ProcessInfoBoxes />
         <Services />
+        <ResultsShowcase />
         <Testimonials />
         <Contact />
         <Footer />

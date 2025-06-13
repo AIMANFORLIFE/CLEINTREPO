@@ -30,10 +30,10 @@ const Header = () => {
         isVisible ? 'animate-fade-in-down' : 'opacity-0'
       }`}
     >
-      <nav className="container mx-auto px-6 py-3">
+      <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-3 text-xl font-bold text-white tracking-wider group">
-            <div className="relative">
+          <div className="flex items-center space-x-6 text-xl font-bold text-white tracking-wider group">
+            <div className="relative flex-shrink-0">
               <Logo />
               <div className="absolute inset-0 w-8 h-8 bg-white/10 rounded-full blur-md opacity-0 group-hover:opacity-75 transition-opacity duration-300"></div>
             </div>
@@ -42,7 +42,7 @@ const Header = () => {
             </span>
           </div>
           
-          <div className="hidden md:flex items-center space-x-6">
+          <div className="hidden md:flex items-center space-x-8">
             <button 
               onClick={() => scrollToSection('hero')}
               className="text-white/80 hover:text-white transition-all duration-300 text-sm font-medium hover:scale-105 group"
@@ -105,7 +105,7 @@ const Header = () => {
             </button>
             <button 
               onClick={() => scrollToSection('contact')}
-              className="glass-button text-white px-5 py-2 text-sm font-medium transition-all duration-300 hover:scale-105"
+              className="glass-button text-white px-6 py-2 text-sm font-medium transition-all duration-300 hover:scale-105"
               style={{ animationDelay: '0.7s' }}
             >
               <span className="relative z-10">Contact</span>

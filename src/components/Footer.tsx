@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
           <div className="mb-8 md:mb-0 animate-fade-in-left">
             <div className="text-2xl font-bold text-white tracking-wider mb-4">
-              AUGMENTUM
+              Augmentum
             </div>
             <p className="text-white/60 text-sm max-w-md">
               Fractional marketing solutions for permanent business impact.

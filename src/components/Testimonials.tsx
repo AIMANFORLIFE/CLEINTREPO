@@ -98,10 +98,14 @@ const Testimonials = () => {
                 . Highly recommend their services!"
               </blockquote>
 
-              {/* Client info */}
+              {/* Client info with profile picture */}
               <div className="flex items-center justify-center space-x-6">
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold text-xl animate-profile-glow">
-                  JW
+                <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-white/20 animate-profile-glow">
+                  <img 
+                    src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400" 
+                    alt="Jack Williams"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div className="text-left">
                   <div className="text-white font-semibold text-lg mb-1">Jack Williams</div>

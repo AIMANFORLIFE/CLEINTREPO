@@ -38,7 +38,7 @@ const Header = () => {
               <div className="absolute inset-0 w-8 h-8 bg-white/10 rounded-full blur-md opacity-0 group-hover:opacity-75 transition-opacity duration-300"></div>
             </div>
             <span className="bg-gradient-to-r from-white via-blue-100 to-purple-100 bg-clip-text text-transparent">
-              AUGMENTUM
+              Augmentum
             </span>
           </div>
           

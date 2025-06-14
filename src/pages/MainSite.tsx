@@ -5,7 +5,6 @@ import ServiceInfoBoxes from '../components/ServiceInfoBoxes';
 import Process from '../components/Process';
 import ProcessInfoBoxes from '../components/ProcessInfoBoxes';
 import Services from '../components/Services';
-import ResultsShowcase from '../components/ResultsShowcase';
 import Testimonials from '../components/Testimonials';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
@@ -24,7 +23,6 @@ const MainSite = () => {
         <Process />
         <ProcessInfoBoxes />
         <Services />
-        <ResultsShowcase />
         <Testimonials />
         <Contact />
         <Footer />

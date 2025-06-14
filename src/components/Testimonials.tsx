@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Star, Quote, TrendingUp, Users, Award } from 'lucide-react';
+import { Star, Quote, TrendingUp, Users, Award, Target, Clock, Zap } from 'lucide-react';
 
 const Testimonials = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -22,114 +22,104 @@ const Testimonials = () => {
     return () => observer.disconnect();
   }, []);
 
-  const stats = [
-    { icon: TrendingUp, value: "300%", label: "Sales Increase", color: "text-green-400" },
-    { icon: Users, value: "50+", label: "Happy Clients", color: "text-blue-400" },
-    { icon: Award, value: "98%", label: "Success Rate", color: "text-purple-400" }
+  const metrics = [
+    { value: "300%", label: "Sales Increase", icon: TrendingUp },
+    { value: "95%", label: "Success Rate", icon: Target },
+    { value: "50+", label: "Happy Clients", icon: Users },
+    { value: "30 Days", label: "Time to Results", icon: Clock }
   ];
 
   return (
-    <section id="testimonials" ref={sectionRef} className="py-24 px-8 relative overflow-hidden">
-      {/* Background elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full blur-3xl animate-float-slow"></div>
-        <div className="absolute bottom-20 right-10 w-40 h-40 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-full blur-3xl animate-float-slow" style={{ animationDelay: '2s' }}></div>
-      </div>
-
+    <section id="testimonials" ref={sectionRef} className="py-24 px-8 relative overflow-hidden bg-black">
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center mb-16">
-          <h2 className={`text-4xl md:text-5xl font-light text-white mb-4 transition-all duration-1000 ${
-            isVisible ? 'opacity-100 translate-y-0 animate-text-glow' : 'opacity-0 translate-y-10'
-          }`}>
-            Client Success Stories
-          </h2>
-          <p className={`text-white/70 text-lg max-w-2xl mx-auto transition-all duration-1000 delay-200 ${
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          {/* Left side - Dark section with testimonial */}
+          <div className={`transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
-            Real results from real businesses who trusted us with their growth
-          </p>
-        </div>
+            <div className="bg-black p-8">
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 leading-tight">
+                Client Success Stories
+              </h2>
+              
+              {/* Main testimonial */}
+              <div className="mb-8">
+                <div className="flex justify-start mb-6">
+                  <div className="w-12 h-12 glass-card flex items-center justify-center">
+                    <Quote className="w-6 h-6 text-blue-400" />
+                  </div>
+                </div>
 
-        {/* Stats Section */}
-        <div className={`grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 transition-all duration-1000 delay-400 ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        }`}>
-          {stats.map((stat, index) => (
-            <div 
-              key={index}
-              className="glass-card-enhanced p-8 text-center group hover:scale-105 transition-all duration-500"
-              style={{ animationDelay: `${0.6 + index * 0.2}s` }}
-            >
-              <div className="relative mb-6">
-                <stat.icon className={`w-12 h-12 ${stat.color} mx-auto group-hover:scale-110 transition-transform duration-500`} />
-                <div className="absolute inset-0 bg-current opacity-20 rounded-full blur-xl animate-pulse-glow"></div>
+                <blockquote className="text-xl md:text-2xl font-light text-white leading-relaxed mb-8">
+                  "I couldn't be happier with the results! The team at Augmentum is fantastic—professional, responsive, and truly dedicated. They helped increase our sales by{' '}
+                  <span className="font-bold text-yellow-400">
+                    300% in just the first month
+                  </span>
+                  . Highly recommend their services!"
+                </blockquote>
+
+                {/* Client info with profile picture */}
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-white/20">
+                    <img 
+                      src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400" 
+                      alt="Jack Williams"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <div className="text-white font-semibold">Jack Williams</div>
+                    <div className="text-white/70 text-sm">Head of Sales</div>
+                    <div className="text-blue-400 text-sm font-medium">Cabin Fever Wellness</div>
+                  </div>
+                </div>
+
+                {/* Star rating */}
+                <div className="flex mt-6 space-x-1">
+                  {[...Array(5)].map((_, i) => (
+                    <Star 
+                      key={i} 
+                      className="w-5 h-5 text-yellow-400 fill-current" 
+                    />
+                  ))}
+                </div>
               </div>
-              <div className={`text-4xl font-bold ${stat.color} mb-2 animate-counter`}>
-                {stat.value}
-              </div>
-              <p className="text-white/70 font-medium">{stat.label}</p>
+
+              <p className="text-white/70 text-lg leading-relaxed">
+                Working with our team, you'll see significant lifts in the business metrics you're reporting on to C-suite. From sales velocity to improved CAC and improved pipeline, just as we've done for the heads of marketing at 50+ other B2B SaaS companies.
+              </p>
             </div>
-          ))}
-        </div>
+          </div>
 
-        {/* Main Testimonial */}
-        <div className={`transition-all duration-1000 delay-800 ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        }`}>
-          <div className="glass-card-testimonial p-12 relative overflow-hidden group">
-            {/* Background decoration */}
-            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-1000"></div>
-            <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-purple-500/10 to-pink-500/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-1000"></div>
-            
-            <div className="relative z-10">
-              {/* Quote icon */}
-              <div className="flex justify-center mb-8">
-                <div className="w-16 h-16 glass-card flex items-center justify-center group-hover:rotate-12 transition-transform duration-500">
-                  <Quote className="w-8 h-8 text-blue-400 animate-pulse-glow" />
+          {/* Right side - Bright metric cards */}
+          <div className={`grid grid-cols-2 gap-4 transition-all duration-1000 delay-300 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}>
+            {metrics.map((metric, index) => (
+              <div 
+                key={index}
+                className="bg-yellow-400 text-black p-6 rounded-2xl hover:scale-105 transition-all duration-300 group"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <metric.icon className="w-6 h-6 text-black" />
+                  <span className="text-2xl font-bold">↗</span>
                 </div>
-              </div>
-
-              {/* Testimonial text */}
-              <blockquote className="text-2xl md:text-3xl font-light text-white text-center leading-relaxed mb-12 animate-text-reveal">
-                "I couldn't be happier with the results! The team at Augmentum is fantastic—professional, responsive, and truly dedicated. They helped increase our sales by{' '}
-                <span className="font-bold bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent animate-highlight">
-                  300% in just the first month
-                </span>
-                . Highly recommend their services!"
-              </blockquote>
-
-              {/* Client info with profile picture */}
-              <div className="flex items-center justify-center space-x-6">
-                <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-white/20 animate-profile-glow">
-                  <img 
-                    src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400" 
-                    alt="Jack Williams"
-                    className="w-full h-full object-cover"
-                  />
+                
+                <div className="text-3xl font-bold mb-2 text-black">
+                  {metric.value}
                 </div>
-                <div className="text-left">
-                  <div className="text-white font-semibold text-lg mb-1">Jack Williams</div>
-                  <div className="text-white/70 text-sm">Head of Sales</div>
-                  <div className="text-blue-400 text-sm font-medium">Cabin Fever Wellness</div>
-                </div>
+                
+                <p className="text-sm font-medium text-black/80">
+                  {metric.label}
+                </p>
               </div>
-
-              {/* Star rating */}
-              <div className="flex justify-center mt-8 space-x-1">
-                {[...Array(5)].map((_, i) => (
-                  <Star 
-                    key={i} 
-                    className="w-6 h-6 text-yellow-400 fill-current animate-star-twinkle" 
-                    style={{ animationDelay: `${i * 0.1}s` }}
-                  />
-                ))}
-              </div>
-            </div>
+            ))}
           </div>
         </div>
 
         {/* Call to action */}
-        <div className={`text-center mt-16 transition-all duration-1000 delay-1000 ${
+        <div className={`text-center mt-16 transition-all duration-1000 delay-600 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
           <p className="text-white/60 mb-6 text-lg">
@@ -140,10 +130,9 @@ const Testimonials = () => {
               const element = document.getElementById('contact');
               if (element) element.scrollIntoView({ behavior: 'smooth' });
             }}
-            className="glass-button-hero text-white px-10 py-4 text-lg font-medium group relative overflow-hidden"
+            className="bg-yellow-400 text-black px-10 py-4 text-lg font-medium rounded-full hover:bg-yellow-300 transition-all duration-300 group"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-green-500/20 to-blue-500/20 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left"></div>
-            <span className="relative z-10 group-hover:scale-105 transition-transform duration-500">
+            <span className="group-hover:scale-105 transition-transform duration-300 inline-block">
               Start Your Success Story
             </span>
           </button>
